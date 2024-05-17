@@ -9,5 +9,6 @@ import datamodel
 from credentials.aws_db_credentials import db_name, db_user, db_password, db_host, db_port
 
 # Create the data model for the database.
+# WARNING: This step will delete all the tables and data previously contained in the database
 
 datamodel.create_data_model(db_name, db_user, db_password, db_host, db_port)
