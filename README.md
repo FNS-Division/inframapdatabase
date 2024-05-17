@@ -25,7 +25,7 @@
 
 ##  Overview
 
-This project provides a suite of Python scripts and configuration files for managing a database of telecommunication infrastructure information. It allows you to create and interact with a database schema designed to store data on Point of Interest (POI) locations, cell sites, transmission nodes, costs and mobile coverage.
+This project provides a suite of Python scripts and configuration files for managing a database of telecommunication infrastructure information. It allows you to create and interact with a MySQL database schema designed to store data on Point of Interest (POI) locations, cell sites, transmission nodes, costs and mobile coverage.
 
 The included scripts handle:
 
