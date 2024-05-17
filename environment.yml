@@ -1,0 +1,19 @@
+name: dbsetupenv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - sqlalchemy
+  - mysql
+  - geoalchemy2
+  - gdal
+  - geopandas
+  - numpy
+  - pandas
+  - pandana
+  - pip
+  - flake8
+  - autopep8
+  - shapely
+  - ipykernel
