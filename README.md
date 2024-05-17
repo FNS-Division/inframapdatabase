@@ -34,7 +34,7 @@ The included scripts handle:
 - Data manipulation
 - Data retrieval
 
-In order to create a local database on a Ubuntu machine, follow the commands in script `create_local_mysql_db.sh`. The provided codes allow for interacting with either a local databse, or a database hosted on Amazon Web Services (AWS).
+In order to create a local database on a Ubuntu server, follow the commands in script `create_local_mysql_db.sh`. The provided codes allow for interacting with either a local databse, or a database hosted on Amazon Web Services (AWS).
 
 ---
 
