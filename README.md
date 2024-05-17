@@ -25,7 +25,16 @@
 
 ##  Overview
 
-HTTP error 429 for prompt `overview`
+This project provides a suite of Python scripts and configuration files for managing a database of telecommunication infrastructure information. It allows you to create and interact with a database schema designed to store data on Point of Interest (POI) locations, cell sites, transmission nodes, costs and mobile coverage.
+
+The included scripts handle:
+
+- Database creation
+- Data loading
+- Data manipulation
+- Data retrieval
+
+In order to create a local database on a Ubuntu machine, follow the commands in script `create_local_mysql_db.sh`. The provided codes allow for interacting with either a local databse, or a database hosted on Amazon Web Services (AWS).
 
 ---
 
@@ -84,13 +93,13 @@ HTTP error 429 for prompt `overview`
 
 | File                                                                                                              | Summary                                              |
 | ---                                                                                                               | ---                                                  |
-| [00_create_data_model.py](https://github.com/FNS-Division/inframapdatabase/blob/master/00_create_data_model.py)   | HTTP error 429 for prompt `00_create_data_model.py`  |
-| [03_query_data.py](https://github.com/FNS-Division/inframapdatabase/blob/master/03_query_data.py)                 | HTTP error 429 for prompt `03_query_data.py`         |
-| [02_delete_data.py](https://github.com/FNS-Division/inframapdatabase/blob/master/02_delete_data.py)               | HTTP error 429 for prompt `02_delete_data.py`        |
-| [datamodel.py](https://github.com/FNS-Division/inframapdatabase/blob/master/datamodel.py)                         | HTTP error 429 for prompt `datamodel.py`             |
-| [create_local_mysql_db.sh](https://github.com/FNS-Division/inframapdatabase/blob/master/create_local_mysql_db.sh) | HTTP error 429 for prompt `create_local_mysql_db.sh` |
-| [environment.yml](https://github.com/FNS-Division/inframapdatabase/blob/master/environment.yml)                   | HTTP error 429 for prompt `environment.yml`          |
-| [01_add_data.py](https://github.com/FNS-Division/inframapdatabase/blob/master/01_add_data.py)                     | HTTP error 429 for prompt `01_add_data.py`           |
+| [00_create_data_model.py](https://github.com/FNS-Division/inframapdatabase/blob/master/00_create_data_model.py)   | `00_create_data_model.py`  |
+| [01_add_data.py](https://github.com/FNS-Division/inframapdatabase/blob/master/01_add_data.py)                     | `01_add_data.py`           |
+| [02_delete_data.py](https://github.com/FNS-Division/inframapdatabase/blob/master/02_delete_data.py)               | `02_delete_data.py`        |
+| [03_query_data.py](https://github.com/FNS-Division/inframapdatabase/blob/master/03_query_data.py)                 | `03_query_data.py`         |
+| [datamodel.py](https://github.com/FNS-Division/inframapdatabase/blob/master/datamodel.py)                         | `datamodel.py`             |
+| [create_local_mysql_db.sh](https://github.com/FNS-Division/inframapdatabase/blob/master/create_local_mysql_db.sh) | `create_local_mysql_db.sh` |
+| [environment.yml](https://github.com/FNS-Division/inframapdatabase/blob/master/environment.yml)                   | `environment.yml`          |
 
 </details>
 
@@ -98,8 +107,8 @@ HTTP error 429 for prompt `overview`
 
 | File                                                                                                                        | Summary                                                         |
 | ---                                                                                                                         | ---                                                             |
-| [local_db_credentials.py](https://github.com/FNS-Division/inframapdatabase/blob/master/credentials/local_db_credentials.py) | HTTP error 429 for prompt `credentials/local_db_credentials.py` |
-| [aws_db_credentials.py](https://github.com/FNS-Division/inframapdatabase/blob/master/credentials/aws_db_credentials.py)     | HTTP error 429 for prompt `credentials/aws_db_credentials.py`   |
+| [local_db_credentials.py](https://github.com/FNS-Division/inframapdatabase/blob/master/credentials/local_db_credentials.py) | `credentials/local_db_credentials.py` |
+| [aws_db_credentials.py](https://github.com/FNS-Division/inframapdatabase/blob/master/credentials/aws_db_credentials.py)     | `credentials/aws_db_credentials.py`   |
 
 </details>
 
@@ -130,7 +139,8 @@ cd inframapdatabase
 3. Install the dependencies:
 
 ```sh
-pip install -r requirements.txt
+conda env create --file environment.yml
+conda activate dbsetupenv
 ```
 
 ###  Running inframapdatabase
@@ -138,7 +148,9 @@ pip install -r requirements.txt
 Use the following command to run inframapdatabase:
 
 ```sh
-python main.py
+python3 00_create_data_model.py
+python3 01_add_data.py
+...
 ```
 
 ---
