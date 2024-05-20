@@ -22,9 +22,20 @@ db_password = os.getenv("DB_PASSWORD")
 db_host = os.getenv("DB_HOST")
 db_port = os.getenv("DB_PORT")
 
-# Read in POI data from data folder
-poi_data_filepath = os.path.join(os.getcwd(), "data", "ESP", "processed", "pointofinterest", "ESP-1697915895-xs2u-pointofinterest.csv")
-poi_data = pd.read_csv(poi_data_filepath)
+# Define the data types and filenames
+data_info = {
+    "pointofinterest": "ESP-1697915895-xs2u-pointofinterest.csv",
+    "cellsite": "ESP-1697916284-6wv8-cellsite.csv",
+    "transmissionnode": "ESP-1697916384-1icf-transmissionnode.csv"
+}
+
+# Create a dictionary to hold the data
+data_dict = {}
+
+# Loop through the data_info dictionary and read each CSV file
+for data_type, filename in data_info.items():
+    filepath = os.path.join(os.getcwd(), "data", "ESP", "processed", data_type, filename)
+    data_dict[data_type] = pd.read_csv(filepath)
 
 # Database URL
 db_url = f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
@@ -44,9 +55,25 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # Use pandas.to_sql for bulk insertion
+
+    # POI data
 try:
-    poi_data.to_sql("point_of_interest", engine, index=False, if_exists='append')
-    print("Data added to the database.")
+    data_dict["pointofinterest"].to_sql("point_of_interest", engine, index=False, if_exists='append')
+    print("POI data added to the database.")
+except Exception as e:
+    print("Error:", e)
+
+    # Cell site data
+try:
+    data_dict["cellsite"].to_sql("cell_site", engine, index=False, if_exists='append')
+    print("Cell site data added to the database.")
+except Exception as e:
+    print("Error:", e)
+
+    # Transmission node data
+try:
+    data_dict["transmissionnode"].to_sql("transmission_node", engine, index=False, if_exists='append')
+    print("Transmission node data added to the database.")
 except Exception as e:
     print("Error:", e)
 

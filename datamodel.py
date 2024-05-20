@@ -118,7 +118,7 @@ def create_data_model(db_name, db_user, db_password, db_host, db_port):
                                                   Column(
                                                       'analysis_id', String(50), ForeignKey('analysis.analysis_id')),
                                                   Column(
-                                                      'node_id', String(50), ForeignKey('transmission_node.node_id'))
+                                                      'ict_id', String(50), ForeignKey('transmission_node.ict_id'))
                                                   )
 
     # Mobile coverage contours used in each analysis
@@ -287,7 +287,7 @@ def create_data_model(db_name, db_user, db_password, db_host, db_port):
         )
 
         # Columns
-        node_id = Column(String(50), primary_key=True)
+        ict_id = Column(String(50), primary_key=True)
         source_ict_id = Column(String(50))
         dataset_id = Column(String(50), nullable=False, index=True)
         country_code = Column(String(3), nullable=False, index=True)
