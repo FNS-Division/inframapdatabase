@@ -3,12 +3,24 @@ import os
 import pandas as pd
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, inspect
+from dotenv import load_dotenv
 
-# Load database credentials
-# If you wish to you use your local database, run the following line instead:
-    # from credentials.local_db_credentials import db_name, db_user, db_password, db_host, db_port
+# Set the .env file path based on the environment
+server = "aws" # aws or local
+if server == "aws":
+  env_file_path = "credentials/.env.aws"
+else:
+  env_file_path = "credentials/.env.local"
 
-from credentials.aws_db_credentials import db_name, db_user, db_password, db_host, db_port
+# Load the environment variables from the path
+load_dotenv(env_file_path)
+
+# Get environment variables
+db_name = os.getenv("DB_NAME")
+db_user = os.getenv("DB_USER")
+db_password = os.getenv("DB_PASSWORD")
+db_host = os.getenv("DB_HOST")
+db_port = os.getenv("DB_PORT")
 
 # Read in POI data from data folder
 poi_data_filepath = os.path.join(os.getcwd(), "data", "ESP", "processed", "pointofinterest", "ESP-1697915895-xs2u-pointofinterest.csv")
