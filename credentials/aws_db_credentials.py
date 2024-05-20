@@ -1,5 +1,0 @@
-db_name = "inframap_db"
-db_user = "admin"
-db_password = "Fantastic-Planet-85"
-db_host = "inframapinstance.cjayyoama975.eu-north-1.rds.amazonaws.com"
-db_port = "3306"
