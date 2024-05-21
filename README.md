@@ -61,9 +61,9 @@ In order to create a local database on a Ubuntu server, follow the commands in s
     │       │   │   ├── ESP-1714391188-zq9z-cost-results-poi-info.csv
     │       │   │   └── ESP-1714391188-zq9z-cost-results.csv
     │       │   ├── fiberpath
-    │       │   │   ├── ESP-1715934412-1pka-edges.csv.csv
-    │       │   │   ├── ESP-1715934412-1pka-nodes.csv.csv
-    │       │   │   └── ESP-1715934412-1pka-results.csv.csv
+    │       │   │   ├── ESP-1715934412-1pka-edges.csv
+    │       │   │   ├── ESP-1715934412-1pka-nodes.csv
+    │       │   │   └── ESP-1715934412-1pka-results.csv
     │       │   ├── pcd
     │       │   │   └── ESP-1708346219-hhao-pcd.csv
     │       │   └── visibility
