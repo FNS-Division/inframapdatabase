@@ -107,8 +107,8 @@ In order to create a local database on a Ubuntu server, follow the commands in s
 
 | File                                                                                                                        | Summary                                                         |
 | ---                                                                                                                         | ---                                                             |
-| [local_db_credentials.py](https://github.com/FNS-Division/inframapdatabase/blob/master/credentials/local_db_credentials.py) | `credentials/local_db_credentials.py` |
-| [aws_db_credentials.py](https://github.com/FNS-Division/inframapdatabase/blob/master/credentials/aws_db_credentials.py)     | `credentials/aws_db_credentials.py`   |
+| [local_db_credentials.py](https://github.com/FNS-Division/inframapdatabase/blob/master/credentials/.env.aws) | AWS environment |
+| [aws_db_credentials.py](https://github.com/FNS-Division/inframapdatabase/blob/master/credentials/.env.local)     | Local environment   |
 
 </details>
 
